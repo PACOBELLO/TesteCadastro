@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pessoas</title>
+</head>
+<body>
+    <form>
+        <label for="nome">
+            Nome:
+        </label>
+        <input type="text" id="nome" required minlength="3" >
+        
+      
+        <label for="telefone">
+            Telefone:
+        </label>
+        <input type="text" id="telefone" required minlength="11" required maxlength="11" >
+ 
+        
+        <label for="RG">
+            RG:
+        </label>
+        <input type="text" id="RG" required minlength="9" required maxlength="9">
+    
+        <button type="submit" id="submit" onclick="validate(e)">
+            submit  
+        </button>
+        
+        
+        
+       
+        
+        
+        </button>
+    </form>
+    <script>
+        const submit = document.getElementById("submit");
+
+submit.addEventListener("click", validate);
+
+function validate(e) {
+  e.preventDefault();
+
+  const nome = document.getElementById("nome");
+  let valid = true;
+
+  if (!nome.value) {
+    const nameError = document.getElementById("nameError");
+    nameError.classList.add("visible");
+    nome.classList.add("invalid");
+    nameError.setAttribute("aria-hidden", false);
+    nameError.setAttribute("aria-invalid", true);
+  }
+  return valid;
+}
+        function imprimirDados(){
+            var nome = document.getElementById("nome").value
+            var telefone = document.getElementById("telefone").value
+            var RG = document.getElementById("RG").value
+          
+            console.log("Nome: " + nome + ", telefone: " + telefone + ", RG: " + RG)
+            document.writeln("Nome: " + nome + ", telefone: " + telefone + ", RG: " + RG)
+            
+        }
+    </script>
+</body>
+</html>
